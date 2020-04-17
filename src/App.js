@@ -1,6 +1,6 @@
-import React, {useState, useMemo} from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import { Route, Switch , BrowserRouter} from 'react-router-dom';
+import { Route, Switch ,Router} from 'react-router-dom';
 import CustomNavBar from './Containers/Header/CustomNavBar';
 import login from './Containers/Login/Login';
 import Home from './Containers/Header/Home';
@@ -8,15 +8,18 @@ import About from './Containers/Header/About';
 import RegistorForm from './Containers/Login/RegistorForm';
 import AddQuestion from './Components/addQuestion';
 import {UserContext} from './context';
+import history from "./history";
+
 
 export default function App(){
   const [user, setUser] = useState({ loggedUser: '' , isLoggedIn: false});
-  const userValue = useMemo(() => ({user, setUser}), [user, setUser]);
-  console.log(user.isLoggedIn);
-
+  const userContextValue={
+    user,
+    setUser
+  }
     return (
-      <BrowserRouter>
-        <UserContext.Provider value= {userValue}>
+      <Router history={history}>
+        <UserContext.Provider value= {userContextValue}>
           <CustomNavBar/>
           <Switch>
             <Route exact path='/' component={Home} />
@@ -26,6 +29,6 @@ export default function App(){
             <Route path='/AddQuestion' component={AddQuestion}/>
           </Switch>
         </UserContext.Provider>
-      </BrowserRouter>
+      </Router>
     );
 }

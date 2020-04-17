@@ -2,33 +2,37 @@ import React , {useContext} from 'react';
 import "./CustomNavBar.css";
 import {Navbar, Nav, Button, Form} from "react-bootstrap";
 import { UserContext } from '../../context';
+import {NavLink} from 'react-router-dom';
 
-export default function CustomNavBar(){
+const CustomNavBar=(props)=>{
     const {user, setUser} = useContext(UserContext);
-    console.log(user.isLoggedIn);
-
+    const {history}=props;
     return(
         <Navbar default collapseOnSelect>
-            <Navbar.Brand href="/">MONKE </Navbar.Brand> 
+            <Navbar.Brand href="/">MONKE</Navbar.Brand> 
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                    <Nav.Link href = "/">Home</Nav.Link>
-                    <Nav.Link href="/About">About</Nav.Link>
-                </Nav>
+                 <Nav className="mr-auto">
+                    <NavLink to = "/" style={{color: "black", padding: "10px"}} key="home">Home</NavLink>
+                    <NavLink to="/About" style={{color: "black", padding: "10px"}} key="about">About</NavLink>
+                    </Nav>
                 <Form inline>
                     {!user.isLoggedIn &&
-                    <div>
-                    <Button href="./RegistorForm" variant="outline-dark" size = "sm" className="mr-sm-2">Signup</Button>
-                    <Button href="./Login" variant="outline-dark" size = "sm">Login</Button>
+                    <div >
+                    <Button style={{background:"white", margin: "10px"}}>
+                        <NavLink to="/RegistorForm" key={1}>Signup</NavLink>
+                    </Button>
+                    <Button style={{background:"white", margin: "10px"}}>
+                        <NavLink to="/Login" key={2}>Login</NavLink>
+                    </Button>
                     </div>
                     }
                     {user.isLoggedIn && 
                     <div>
-                    <Nav className="mr-auto">
-                    <Nav.Link>LoggedIn</Nav.Link>
-                    <Button onClick = {() => {setUser({isLoggedIn : false , loggedUser:''})}} variant="outline-dark" size = "sm">Logout</Button>
-                    </Nav>
+                        <Nav className="mr-auto">
+                        <Nav.Link>LoggedIn</Nav.Link>
+                        <Button onClick = {() => {setUser({isLoggedIn : false , loggedUser:''})}} variant="outline-dark" size = "sm">Logout</Button>
+                        </Nav>
                     </div>
                     }
                 </Form>
@@ -36,3 +40,4 @@ export default function CustomNavBar(){
         </Navbar>
     );
 }
+export default CustomNavBar;

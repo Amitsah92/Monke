@@ -5,11 +5,9 @@ import axios from 'axios';
 import Home from '../Header/Home';
 import {UserContext} from '../../context';
 
-function Login(){
+const Login=(props)=>{
     const {user, setUser} = useContext(UserContext);
-    console.log(user.isLoggedIn);
-    console.log(user.loggedUser)
-
+    const {history}=props
     const onFormSubmit = (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
@@ -30,15 +28,14 @@ function Login(){
             }
             else{
                 alert('Logged In. Welcome to Monke.')
-                setUser({loggedUser: data.get('username'), isLoggedIn : true});
-                //window.location.href= 'http://localhost:3000/addQuestion'
+                setUser({loggedUser: data.get('username') , isLoggedIn : true});
+                history.push('/AddQuestion');
             }
         });
     }
-    if(user.isLoggedIn === false){
         return (
             <div>
-                <Container>
+                {user.isLoggedIn?  <Home/>: <Container>
                     <Row style={{margin: 50}}>
                     <Col xs={6}>
                         <Image src="Assets/RegistrationPic.jpeg" thumbnail />   
@@ -67,17 +64,11 @@ function Login(){
                         </Jumbotron>
                     </Col>
                     </Row>
-                </Container>
+                </Container> 
+                }  
             </div>
         )
-    }
-    else{
-        return(
-            <div>
-                <Home/>
-            </div>
-        )
-    }    
+    
 }
 
 export default Login;

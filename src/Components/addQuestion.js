@@ -10,7 +10,6 @@ export default function AddQuestion(){
     const {user} = useContext(UserContext);
     console.log(user.loggedUser)
     var resData = [] 
-
     useEffect(() =>{
         const bodyParams = {
             Uploadedby: user.loggedUser
@@ -87,10 +86,9 @@ export default function AddQuestion(){
             }
         });
     }
-
-    if(user.isLoggedIn){
         return(
-            <Container fluid>
+            <div>
+                {user.isLoggedIn? <Container fluid>
                 <Row>
                     <Col>
                         <Jumbotron style={{ marginTop: 15}}>
@@ -164,14 +162,8 @@ export default function AddQuestion(){
                         </Jumbotron>
                     </Col>
                 </Row>
-            </Container>
-        )
-    }
-    else{
-        return(
-            <div>
-                <Login/>
+            </Container>:<Login/>}
             </div>
+            
         )
-    }
 }
