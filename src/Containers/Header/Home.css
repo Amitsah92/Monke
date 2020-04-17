@@ -1,0 +1,15 @@
+.Jumbotron-Home{
+    background: url("./welcomePicCrop.jpeg");
+    background-size: cover;
+    text-align: right;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 0.2cm;
+}
+
+.btn-primary {
+    background-image: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #289207;
+}
