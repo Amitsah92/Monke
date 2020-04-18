@@ -6,10 +6,10 @@ import {NavLink} from 'react-router-dom';
 
 const CustomNavBar=(props)=>{
     const {user, setUser} = useContext(UserContext);
-    
+
     return(
         <Navbar default collapseOnSelect>
-            <NavLink to="/">MONKE</NavLink>
+            <NavLink to="/" style={{color: "black", padding: "10px"}}><h4>MONKE</h4></NavLink>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                  <Nav className="mr-auto">
