@@ -19,7 +19,7 @@ const RegistorForm = (props) => {
                 passWord: data.get('password')
             }
             console.log(JSON.stringify(user));
-            const url = 'http://localhost:9000/user' 
+            const url = 'https://floating-badlands-28885.herokuapp.com/user' 
             const headers = {
                 'Content-Type': 'apllication/json'
             }

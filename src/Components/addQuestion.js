@@ -9,7 +9,6 @@ export default function AddQuestion(){
     const [yourQuestion, setYourQuestion] = useState([]);
     const {user} = useContext(UserContext);
     console.log(user.loggedUser)
-    var resData = [] 
     useEffect(() =>{
         const bodyParams = {
             Uploadedby: user.loggedUser
@@ -81,9 +80,9 @@ export default function AddQuestion(){
                 alert("oops something went wrong.")
             }
             else{
-                resData = res.data
+                setYourQuestion(res.data)
+                console.log(yourQuestion)
                 console.log(res.config);
-                console.log(resData);
             }
         });
     }
@@ -147,16 +146,16 @@ export default function AddQuestion(){
                             </Form>
                         </Jumbotron>
                         <Jumbotron>
-                            <Row style={{ marginLeft: 50}}>
-                                <h4>List of all available question.</h4>
+                            <Row style={{ marginLeft: 25}}>
+                                <h4><u>List of all available question.</u></h4>
                             </Row>
                             {yourQuestion.map((eachQuestion, index) =>{
                                 return <div>
                                     <p><b>Q. </b>{eachQuestion.question}</p>
-                                    <p>{eachQuestion.option1}</p>
-                                    <p>{eachQuestion.option2}</p>
-                                    <p>{eachQuestion.option3}</p>
-                                    <p>{eachQuestion.option4}</p>
+                                    <p style={{ marginLeft: 25}}><b>A. </b>{eachQuestion.option1}</p>
+                                    <p style={{ marginLeft: 25}}><b>B. </b>{eachQuestion.option2}</p>
+                                    <p style={{ marginLeft: 25}}><b>C. </b>{eachQuestion.option3}</p>
+                                    <p style={{ marginLeft: 25}}><b>D. </b>{eachQuestion.option4}</p>
                                 </div>
                             })
                             }

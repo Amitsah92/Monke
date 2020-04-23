@@ -9,6 +9,7 @@ import RegistorForm from './Containers/Login/RegistorForm';
 import AddQuestion from './Components/addQuestion';
 import {UserContext} from './context';
 import history from "./history";
+import createMonkTest from "./Components/createMonkeTest";
 
 
 export default function App(){
@@ -27,6 +28,7 @@ export default function App(){
             <Route path='/Login' component={login} />
             <Route path='/RegistorForm' component={RegistorForm}/>
             <Route path='/AddQuestion' component={AddQuestion}/>
+            <Route path='/CreateMonkTest' component={createMonkTest}/>
           </Switch>
         </UserContext.Provider>
       </Router>

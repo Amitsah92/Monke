@@ -40,6 +40,11 @@ export default function Home(){
                     <Col xs={3}>
                     <Jumbotron style={{textAlign: 'center'}}>
                     <h3>Create your own test.</h3>
+                    <div>
+                        <Link to = "/CreateMonkTest">
+                        <Button>Add</Button>
+                        </Link>
+                    </div>
                     </Jumbotron>
                     </Col>
                     <Col xs={3}>
