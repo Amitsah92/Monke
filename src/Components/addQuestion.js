@@ -18,7 +18,7 @@ export default function AddQuestion(){
             'Content-Type': 'application/json'
         }
 
-        axios.post('http://localhost:9000/question/Questions', bodyParams, header)
+        axios.post('https://floating-badlands-28885.herokuapp.com/question/Questions', bodyParams, header)
         .then(res => {
             console.log(res.data)
             setYourQuestion(res.data)
@@ -55,7 +55,7 @@ export default function AddQuestion(){
             Uploadedby: user.loggedUser
         }
         console.log(JSON.stringify(question));
-        const url = 'http://localhost:9000/question' 
+        const url = 'https://floating-badlands-28885.herokuapp.com/question' 
         const headers = {
             'Content-Type': 'apllication/json'
         }
