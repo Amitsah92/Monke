@@ -51,10 +51,6 @@
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
 
-  .signup-btn{
-    color: green;
-  }
-
   .image-login-user{
     max-block-size: 120px;
     border-radius: 100%;

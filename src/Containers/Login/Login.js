@@ -4,7 +4,7 @@ import {Image} from 'react-bootstrap';
 import axios from 'axios';
 import Home from '../Header/Home';
 import {UserContext} from '../../context';
-import {useHistory} from 'react-router-dom';
+import {useHistory,NavLink} from 'react-router-dom';
 import './login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock, faEye, faEyeSlash, faExclamationTriangle} from '@fortawesome/free-solid-svg-icons'
@@ -102,7 +102,9 @@ const Login = (props) =>{
                             </FormGroup>
                         </Form>
                         <h6 className='login-h6'>Have not account yet?</h6>
-                        <Button className='signup-btn' color="link" href="/RegistorForm"><b>SIGN UP</b></Button>
+                        <Button color="link">
+                            <NavLink to="/RegistorForm" key={1} style={{color: "green"}}><b>SIGN UP</b></NavLink>
+                        </Button>
                     </div>
                 </div>  
                 }  
