@@ -162,7 +162,7 @@ export default function AddQuestion(){
                         </Jumbotron>
                     </Col>
                 </Row>
-            </Container>:<Login/>}
+            </Container>:<Login page="/AddQuestion"/>}
             </div>
             
         )

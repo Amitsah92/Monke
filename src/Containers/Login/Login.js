@@ -1,15 +1,24 @@
-import React , {useContext} from 'react'
-import {Container, Row, Col,Button, Form, FormGroup, Label, Input} from 'reactstrap';
-import {Image, Jumbotron} from 'react-bootstrap';
+import React , {useContext, useState} from 'react'
+import { Col,Button, Form, FormGroup,Input,Spinner} from 'reactstrap';
+import {Image} from 'react-bootstrap';
 import axios from 'axios';
 import Home from '../Header/Home';
 import {UserContext} from '../../context';
+import {useHistory} from 'react-router-dom';
+import './login.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faLock, faEye, faEyeSlash, faExclamationTriangle} from '@fortawesome/free-solid-svg-icons'
 
-const Login=(props)=>{
+const Login = (props) =>{
+    const[loading, setLoading] = useState(false);
+    const[visible, setVisible] = useState(false);
+    const[loginFailed, setLoginFailed] = useState(false);
+    const history = useHistory();
     const {user, setUser} = useContext(UserContext);
-    const {history}=props
+    //const {history}=props
     const onFormSubmit = (e) => {
         e.preventDefault();
+        setLoading(true);
         const data = new FormData(e.target);
         const user = {
             userName: data.get('username'),
@@ -24,51 +33,81 @@ const Login=(props)=>{
         .then(res => {
             console.log(res.data);
             if(res.data === 0){
-                alert('Username or password is incorrect.');
+                setLoginFailed(true);
             }
             else{
                 alert('Logged In. Welcome to Monke.')
                 setUser({loggedUser: data.get('username') , isLoggedIn : true});
-                history.push('/AddQuestion');
+                if(props.page){
+                    history.push(props.page);
+                }
+                else{
+                    history.push("/");
+                }
             }
+            setLoading(false);
         });
+    }
+
+    const handleEyeIconClick = (e) =>{
+        setVisible(!visible);
+    }
+
+    const handleFormClick = (e) => {
+        setLoginFailed(false);
     }
         return (
             <div>
-                {user.isLoggedIn?  <Home/>: <Container>
-                    <Row style={{margin: 50}}>
-                    <Col xs={6}>
-                        <Image src="Assets/RegistrationPic.jpeg" thumbnail />   
-                    </Col>
-                    <Col xs={6}>
-                        <Jumbotron>
-                        <Form  onSubmit ={onFormSubmit} style={{ marginLeft: 60, marginTop: 80, marginBottom:80}}>
+                {user.isLoggedIn?  <Home/>:
+                <div className='wrapper-background'>
+                    <div className='form-wrapper-lg'>
+                        <Form  onSubmit ={onFormSubmit} className='custom-form-lg' onClick={handleFormClick}>
                             <FormGroup row>
-                                <Label for="Name" sm={3}>Username</Label>
-                                <Col sm={8}>
-                                    <Input type="text" name="username" id="Username" placeholder="Enter Username" />
+                                <Col sm={12}>
+                                    <Image className="image-login-user" src="Assets/loginImage.png"/>
+                                </Col>
+                            </FormGroup>
+                            <FormGroup row style={{marginBottom:30}}>
+                                <Col sm={12}>
+                                    <h4 className='login-h4'>User Login</h4>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Label for="Password" sm={3}>Password</Label>
-                                <Col sm={8}>
-                                    <Input type="password" name="password" id="Password" placeholder="Enter Password" />
+                                <Col sm={12} className='username-col'>
+                                    <Input type="text" name="username" id="Username" placeholder="Type Your Username"/>
+                                    <i><FontAwesomeIcon icon={faUser}/></i>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
-                                <Col sm={8}>
-                                    <Button type='submit'>Submit</Button>
+                                <Col sm={12} className='password-col'>
+                                    <Input type={visible? "text":"password"} name="password" id="Password" placeholder="Type Your Password" />
+                                    <i><FontAwesomeIcon icon={faLock}/></i>
+                                    {visible?
+                                    <b><FontAwesomeIcon icon={faEyeSlash} onClick={handleEyeIconClick}/></b>:
+                                    <b><FontAwesomeIcon icon={faEye} onClick={handleEyeIconClick}/></b>}
+                                </Col>
+                            </FormGroup>
+                            {loginFailed &&
+                            <FormGroup row>
+                                <Col sm={12} className='login-failed'>
+                                    <i><FontAwesomeIcon icon={faExclamationTriangle}/> Login failed.</i>
+                                </Col>
+                            </FormGroup>}
+                            <FormGroup row>
+                                <Col sm={12}>
+                                    <Button type='submit' className='login-button' disabled={loading}>
+                                        {loading? <span>logging in... <Spinner size="sm"  color="primary" /></span>:<span>Login</span> }
+                                    </Button>
                                 </Col>
                             </FormGroup>
                         </Form>
-                        </Jumbotron>
-                    </Col>
-                    </Row>
-                </Container> 
+                        <h6 className='login-h6'>Have not account yet?</h6>
+                        <Button className='signup-btn' color="link" href="/RegistorForm"><b>SIGN UP</b></Button>
+                    </div>
+                </div>  
                 }  
             </div>
-        )
-    
+        )   
 }
 
 export default Login;

@@ -13,7 +13,7 @@ export default function Home(){
                 <Jumbotron className='Jumbotron-Home'>
                     <h1>Welcome to Monke!</h1>
                     <p>A perfect place to practice for all of your examination.</p>
-                    <Link href = "/about">
+                    <Link to = "/about">
                         <Button>Read More...</Button>
                     </Link>
                 </Jumbotron>

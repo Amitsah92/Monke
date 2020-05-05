@@ -30,8 +30,12 @@ const CustomNavBar=(props)=>{
                     {user.isLoggedIn && 
                     <div>
                         <Nav className="mr-auto">
-                        <Nav.Link>{user.loggedUser}</Nav.Link>
-                        <Button onClick = {() => {setUser({isLoggedIn : false , loggedUser:''})}} variant="outline-dark" size = "sm">Logout</Button>
+                            <Nav.Link>{user.loggedUser}</Nav.Link>
+                            <Button 
+                                onClick = {() => {setUser({isLoggedIn : false , loggedUser:''})}}
+                                style={{background:"white"}}>
+                                <NavLink to="/Login" key={2}>Logout</NavLink>
+                            </Button>
                         </Nav>
                     </div>
                     }
