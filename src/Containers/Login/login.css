@@ -6,7 +6,7 @@
     align-items: center;
     flex-direction: column;
     background-color:#F8F9F9 ;
-    background-image: linear-gradient(to right,darkCyan,mediumOrchid);
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   }
   
   .form-wrapper-lg {

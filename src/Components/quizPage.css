@@ -1,0 +1,125 @@
+.wrapper-qp {
+    height: 100vh;
+    width: 100%;
+    display: table;
+    flex-direction: column;
+    justify-content: top;
+    align-items: top;
+    background-color:#F8F9F9 ;
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  }
+
+  .content-wrapper-qp{
+    width: 24%;
+    float:left; 
+    display: flex;
+    margin-left: 1%;
+    margin-top: 1%;
+    padding: 20px 40px;
+    background-color:  grey;
+  }
+
+  .question-wrapper-qp{
+    width: 74%;
+    float:right;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1%;
+    margin-top: 1%;
+    padding: 20px 40px;
+    background-color: #ffff;
+  }
+
+  .content-wrapper-timer{
+    width: 98%;
+    text-align: right;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 20px 40px;
+    background-color: transparent;
+  }
+
+  .button-question-answered{
+    background-color: green;
+    color:Black;
+    border: 1px solid #fff;
+    width: 80%;
+    height: 50px;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 15px;
+    padding: 8px 0px;
+    font-size: 1em;
+    letter-spacing: 1px;
+    margin-bottom: 0.25em;
+    border-radius: 6px;
+    outline-color: white;
+  }
+
+  .button-question{
+    background-color: rgb(226, 84, 84);
+    color:Black;
+    border: 1px solid #fff;
+    width: 80%;
+    height: 50px;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 15px;
+    padding: 8px 0px;
+    font-size: 1em;
+    letter-spacing: 1px;
+    margin-bottom: 0.25em;
+    border-radius: 6px;
+    outline-color: white;
+  }
+
+  .quizpage-h5 {
+    text-align: center;
+    width: 100%;
+    color:black;
+    margin-bottom: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+
+  .wrapper-instruction {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#F8F9F9 ;
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  }
+
+  .instruction-box{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10%;
+    margin-left: 10%;
+    padding: 20px 40px;
+    background-color:  rgb(218, 216, 216);
+  }
+
+  .button-tmb{
+    width: 15%;
+    margin-left: 5%;
+    margin-top: 25px;
+    font-size: 1em;
+    letter-spacing: 1px;
+  }
+
+  .button-pq{
+    width: 15%;
+    margin-left: 60%;
+    margin-top: 25px;
+    font-size: 1em;
+    letter-spacing: 1px;
+  }

@@ -49,7 +49,12 @@ export default function Home(){
                     </Col>
                     <Col xs={3}>
                     <Jumbotron style={{textAlign: 'center'}}>
-                    <h3>View your test result.</h3>
+                    <h3>Take a quiz</h3>
+                    <div>
+                        <Link to = "/quizpage">
+                        <Button>Play Quiz</Button>
+                        </Link>
+                    </div>
                     </Jumbotron>
                     </Col>
                     <Col xs={3}>
