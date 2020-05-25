@@ -4,7 +4,7 @@
     text-align: right;
     width: 100%;
     border-radius: 5px;
-    margin-top: 0.2cm;
+    margin-top: 0.5cm;
 }
 
 .btn-primary {
@@ -12,4 +12,16 @@
     border: none;
     border-radius: 5px;
     background-color: #289207;
+}
+
+.spinner-load{
+    display: table;
+    margin-top: 18%;
+    margin-bottom: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.justify-content-md-center{
+    margin-bottom: 20px;
 }

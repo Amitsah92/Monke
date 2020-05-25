@@ -14,7 +14,7 @@ const Paginate= ({questionPerPage, totalQuestion, paginateHandler, currentPage})
             <Pagination.First onClick={() => paginateHandler(1)}/>
             <Pagination.Prev onClick={() => paginateHandler(currentPage - 1)}/>
             {pageNumbers.map(number =>(
-                <Pagination.Item onClick={() => paginateHandler(number)}>{number}</Pagination.Item>
+                <Pagination.Item key={number} onClick={() => paginateHandler(number)}>{number}</Pagination.Item>
             ))}
             <Pagination.Next onClick={() => paginateHandler(currentPage + 1)}/>
             <Pagination.Last onClick={() => paginateHandler(totalQuestion/questionPerPage)}/>

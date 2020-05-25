@@ -21,7 +21,8 @@ export default function CreateMonkTest(){
             testType: data.get('type'),
             includedQueston: data.get('includedQuestion'),
             expiryDate: data.get('yourSelectedDate'),
-            quizOwner: user.loggedUser
+            quizDuration: data.get('quizDuration'),
+            quizOwner: user.userId
         };
         console.log(JSON.stringify(quiz));
         const url = 'https://floating-badlands-28885.herokuapp.com/quiz' 
@@ -96,9 +97,9 @@ export default function CreateMonkTest(){
                         <div className="difficulty">
                         <label>Dificulty Level:</label>
                         <select name='difficultyLevel'>
-                            <option value="easy">Easy</option>
-                            <option value="moderate">Moderate</option>
-                            <option value="hard">Hard</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Hard">Hard</option>
                         </select>
                         </div>
                         <div className="noOfQuestion">
@@ -127,6 +128,14 @@ export default function CreateMonkTest(){
                         isClearable
                         showYearDropdown
                         scrollableYearDropdown
+                        />
+                        </div>
+                        <div className="difficulty">
+                        <label>Quiz duration: </label>
+                        <input
+                        placeholder="Enter quiz duration in Minutes (> 5 mins and < 180 mins)"
+                        type="text"
+                        name="quizDuration"
                         />
                         </div>
                         <div className="sumbitQuestion">

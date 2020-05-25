@@ -6,38 +6,42 @@ import Home from '../Header/Home';
 import {UserContext} from '../../context';
 import {useHistory,NavLink} from 'react-router-dom';
 import './login.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faLock, faEye, faEyeSlash, faExclamationTriangle} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faLock, faEye, faEyeSlash, faExclamationTriangle} from '@fortawesome/free-solid-svg-icons';
 
 const Login = (props) =>{
+    const history = useHistory();
     const[loading, setLoading] = useState(false);
     const[visible, setVisible] = useState(false);
     const[loginFailed, setLoginFailed] = useState(false);
-    const history = useHistory();
     const {user, setUser} = useContext(UserContext);
     //const {history}=props
+
     const onFormSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
+
         const data = new FormData(e.target);
         const user = {
             userName: data.get('username'),
             passWord: data.get('password')
         };
+
         console.log(JSON.stringify(user));
+
         const url = 'https://floating-badlands-28885.herokuapp.com/user/login'
         const headers = {
             'Content-Type': 'apllication/json'
         }
+
         axios.post(url,user, headers)
         .then(res => {
-            console.log(res.data);
             if(res.data === 0){
                 setLoginFailed(true);
             }
             else{
-                alert('Logged In. Welcome to Monke.')
-                setUser({loggedUser: data.get('username') , isLoggedIn : true});
+                const userDetails = res.data;
+                setUser({userId:userDetails[0]._id, loggedUser: userDetails[0].userName, fullName: userDetails[0].fullName, email: userDetails[0].email, isLoggedIn : true});
                 if(props.page){
                     history.push(props.page);
                 }

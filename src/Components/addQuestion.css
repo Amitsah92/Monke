@@ -1,0 +1,73 @@
+.background-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: top;
+    background-color:rgb(238, 238, 238);
+}
+
+.filterArea{
+    width: 98%;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 1%;
+    margin-right: 1%;
+    flex-direction: column;
+    padding: 20px 40px;
+    box-shadow: 0px 2px 5px #555;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.question-render{
+    width: 98%;
+    display: flex;
+    margin:1%;
+    flex-direction: column;
+    padding: 20px 40px;
+    box-shadow: 0px 2px 5px #555;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.question-render h3{
+    background-color: rgb(231, 231, 231);
+    text-align: center;
+    width: 100%;
+    padding: 6px 0px;
+    border-radius: 50px;
+}
+
+.quiz-title{
+    background-color: rgb(219, 219, 219);
+    border-radius: 50px;
+    padding: 10px 25px;
+    width: 100%;
+}
+
+.delete-icon{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-icon i{
+    position: absolute;
+    top:-9px;
+    padding: 1px 5px;
+}
+
+.delete-icon i:hover{
+    color: red;
+}
+
+.spinner-addQuestion{
+    display: table;
+    margin-top: 15%;
+    margin-bottom: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
