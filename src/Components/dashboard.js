@@ -26,7 +26,7 @@ export default function Dashboard(){
             'Content-Type': 'application/json'
         }
 
-        axios.post('http://localhost:9000/quiz/findquiz', bodyParams, header)
+        axios.post('https://floating-badlands-28885.herokuapp.com/quiz/findquiz', bodyParams, header)
         .then(res => {
             console.log(res.data);
             setQuizs(res.data);

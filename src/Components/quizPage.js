@@ -119,6 +119,7 @@ export default function QuizPage({quizDetails, handleRollBack}){
     }
 
     const handleRollBackClick = () => {
+        alert(window.location.href);
         if(window.location.href === "https://floating-badlands-28885.herokuapp.com/"){
             handleRollBack();
         }else{
