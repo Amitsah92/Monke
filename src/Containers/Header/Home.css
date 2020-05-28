@@ -1,27 +1,27 @@
-.Jumbotron-Home{
-    background: url("./welcomePicCrop.jpeg");
-    background-size: cover;
-    text-align: right;
-    width: 100%;
-    border-radius: 5px;
-    margin-top: 0.5cm;
+.Jumbotron-Home {
+  background: url("./welcomePicCrop.jpeg");
+  background-size: cover;
+  text-align: right;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 0.5cm;
 }
 
 .btn-primary {
-    background-image: none;
-    border: none;
-    border-radius: 5px;
-    background-color: #289207;
+  background-image: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #289207;
 }
 
-.spinner-load{
-    display: table;
-    margin-top: 18%;
-    margin-bottom: 20%;
-    margin-left: auto;
-    margin-right: auto;
+.spinner-load {
+  display: table;
+  margin-top: 18%;
+  margin-bottom: 20%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.justify-content-md-center{
-    margin-bottom: 20px;
+.justify-content-md-center {
+  margin-bottom: 20px;
 }
