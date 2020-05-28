@@ -18,7 +18,7 @@ export default function Dashboard() {
   useEffect(() => {
     const bodyParams = {
       Uploadedby: user.userId,
-      testType: "private",
+      testType: "Private",
       noOfQuiz: "all",
     };
 

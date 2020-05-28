@@ -21,7 +21,7 @@ export default function Home() {
   useEffect(() => {
     let isUnmount = true;
     const bodyParams = {
-      testType: "public",
+      testType: "Public",
     };
 
     const headers = {
