@@ -128,7 +128,7 @@
 
 .sumbit-button-col p {
   position: absolute;
-  right: 10px;
+  right: -15px;
   top: -1px;
   padding: 9px 8px;
   color: red;
