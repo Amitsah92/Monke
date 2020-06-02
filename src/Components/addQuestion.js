@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 import { Row, Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
 import { Card } from "react-bootstrap";
 import { UserContext } from "../context";
-import Login from "../Containers/Login/Login";
 import "./addQuestion.css";
 import Chip from "@material-ui/core/Chip";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -27,6 +27,8 @@ export default function AddQuestion() {
   const [updated, setUpdated] = useState(false);
   const [loading, setLoading] = useState(false);
   const { user } = useContext(UserContext);
+
+  var CatogoryData = ["Reactjs", "Math", "General Knowlwdge", "C Sharp", "IQ"];
 
   useEffect(() => {
     const bodyParams = {
@@ -124,12 +126,14 @@ export default function AddQuestion() {
       option2: data.get("option2"),
       option3: data.get("option3"),
       option4: data.get("option4"),
+      category: data.get("category"),
       answer: Answer,
       difficulty: data.get("dificultyLevel"),
       Uploadedby: user.userId,
     };
     console.log(JSON.stringify(question));
-    const url = "https://floating-badlands-28885.herokuapp.com/question";
+    const url = "http://localhost:9000/question";
+    //const url = "https://floating-badlands-28885.herokuapp.com/question";
 
     const headers = {
       "Content-Type": "apllication/json",
@@ -154,222 +158,210 @@ export default function AddQuestion() {
       });
   };
 
+  if (!user.isLoggedIn) {
+    return <Redirect to="/Login" />;
+  }
+
   return (
-    <div>
-      {user.isLoggedIn ? (
-        <div className="background-wrapper">
-          <div className="filterArea">
-            <Snackbar
-              open={success}
-              autoHideDuration={3000}
-              onClose={handleClose}
-            >
-              <Alert onClose={handleClose} severity="success">
-                Question uploaded successfully.!
-              </Alert>
-            </Snackbar>
-            <Snackbar
-              open={deleted}
-              autoHideDuration={3000}
-              onClose={handleClose}
-            >
-              <Alert onClose={handleClose} severity="success">
-                Question deleted successfully.!
-              </Alert>
-            </Snackbar>
-            <Snackbar
-              open={error}
-              autoHideDuration={3000}
-              onClose={handleClose}
-            >
-              <Alert onClose={handleClose} severity="error">
-                oops something went wrong.!
-              </Alert>
-            </Snackbar>
-            <Form onSubmit={onFormSubmit}>
-              <FormGroup row>
-                <Label for="Question" lg={1} md={12} sm={12}>
-                  <b>Question</b>
-                </Label>
-                <Col lg={11} md={12} sm={12}>
-                  <Input
-                    type="text"
-                    name="question"
-                    id="Question"
-                    placeholder="Enter question"
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label for="Option1" lg={1} md={12} sm={12}>
-                  <b>Option1</b>
-                </Label>
-                <Col lg={5} md={12} sm={12}>
-                  <Input
-                    type="text"
-                    name="option1"
-                    id="Option1"
-                    placeholder="Enter first option"
-                  />
-                </Col>
-                <Label for="Option2" lg={1} md={12} sm={12}>
-                  <b>Option2</b>
-                </Label>
-                <Col lg={5} md={12} sm={12}>
-                  <Input
-                    type="text"
-                    name="option2"
-                    id="Option2"
-                    placeholder="Enter second option"
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label for="Option3" lg={1} md={12} sm={12}>
-                  <b>Option3</b>
-                </Label>
-                <Col lg={5} md={12} sm={12}>
-                  <Input
-                    type="text"
-                    name="option3"
-                    id="Option3"
-                    placeholder="Enter third option"
-                  />
-                </Col>
-                <Label for="Option4" lg={1} md={12} sm={12}>
-                  <b>Option4</b>
-                </Label>
-                <Col lg={5} md={12} sm={12}>
-                  <Input
-                    type="text"
-                    name="option4"
-                    id="Option4"
-                    placeholder="Enter fourth option"
-                  />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label for="AnswerSelect" lg={1} md={12} sm={12}>
-                  <b>Answer</b>
-                </Label>
-                <Col lg={5} md={12} sm={12}>
-                  <Input type="select" name="answerSelect" id="AnswerSelect">
-                    <option>Option1</option>
-                    <option>Option2</option>
-                    <option>Option3</option>
-                    <option>Option4</option>
-                  </Input>
-                </Col>
-                <Label for="Dificulty" lg={1} md={12} sm={12}>
-                  <b>Dificulty Level</b>
-                </Label>
-                <Col lg={5} md={12} sm={12}>
-                  <Input
-                    type="select"
-                    name="dificultyLevel"
-                    id="DificultyLevel"
+    <div className="background-wrapper">
+      <div className="filterArea">
+        <Snackbar open={success} autoHideDuration={3000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="success">
+            Question uploaded successfully.!
+          </Alert>
+        </Snackbar>
+        <Snackbar open={deleted} autoHideDuration={3000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="success">
+            Question deleted successfully.!
+          </Alert>
+        </Snackbar>
+        <Snackbar open={error} autoHideDuration={3000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="error">
+            oops something went wrong.!
+          </Alert>
+        </Snackbar>
+        <Form onSubmit={onFormSubmit}>
+          <FormGroup row>
+            <Label for="Question" lg={1} md={12} sm={12}>
+              <b>Question</b>
+            </Label>
+            <Col lg={11} md={12} sm={12}>
+              <Input
+                type="text"
+                name="question"
+                id="Question"
+                placeholder="Enter question"
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="Option1" lg={1} md={12} sm={12}>
+              <b>Option1</b>
+            </Label>
+            <Col lg={5} md={12} sm={12}>
+              <Input
+                type="text"
+                name="option1"
+                id="Option1"
+                placeholder="Enter first option"
+              />
+            </Col>
+            <Label for="Option2" lg={1} md={12} sm={12}>
+              <b>Option2</b>
+            </Label>
+            <Col lg={5} md={12} sm={12}>
+              <Input
+                type="text"
+                name="option2"
+                id="Option2"
+                placeholder="Enter second option"
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="Option3" lg={1} md={12} sm={12}>
+              <b>Option3</b>
+            </Label>
+            <Col lg={5} md={12} sm={12}>
+              <Input
+                type="text"
+                name="option3"
+                id="Option3"
+                placeholder="Enter third option"
+              />
+            </Col>
+            <Label for="Option4" lg={1} md={12} sm={12}>
+              <b>Option4</b>
+            </Label>
+            <Col lg={5} md={12} sm={12}>
+              <Input
+                type="text"
+                name="option4"
+                id="Option4"
+                placeholder="Enter fourth option"
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="AnswerSelect" lg={1} md={12} sm={12}>
+              <b>Answer</b>
+            </Label>
+            <Col lg={5} md={12} sm={12}>
+              <Input type="select" name="answerSelect" id="AnswerSelect">
+                <option>Option1</option>
+                <option>Option2</option>
+                <option>Option3</option>
+                <option>Option4</option>
+              </Input>
+            </Col>
+            <Label for="Dificulty" lg={1} md={12} sm={12}>
+              <b>Dificulty Level</b>
+            </Label>
+            <Col lg={5} md={12} sm={12}>
+              <Input type="select" name="dificultyLevel" id="DificultyLevel">
+                <option>Easy</option>
+                <option>Moderate</option>
+                <option>Hard</option>
+              </Input>
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="Category" lg={1} md={12} sm={12}>
+              <b>Category</b>
+            </Label>
+            <Col lg={5} md={12} sm={12}>
+              <Input type="select" name="category" id="Category">
+                {CatogoryData.map((category, index) => (
+                  <option key={index}>{category}</option>
+                ))}
+              </Input>
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Col sm={12}>
+              <Button type="submit" size="lg" block disabled={busyBtn}>
+                Submit
+              </Button>
+            </Col>
+          </FormGroup>
+        </Form>
+      </div>
+      <div>
+        {loading ? (
+          <div className="spinner-addQuestion">
+            <FontAwesomeIcon size="4x" color="green" icon={faSpinner} pulse />
+          </div>
+        ) : (
+          <div className="question-render">
+            <h3>Your Contribution to Question Bank.</h3>
+            <Row>
+              {currentQuestions.map((eachQuestion, index) => (
+                <Col lg={6} md={12} sm={12} key={index}>
+                  <Card
+                    key={index}
+                    style={{ width: "100%", marginBottom: "30px" }}
                   >
-                    <option>Easy</option>
-                    <option>Moderate</option>
-                    <option>Hard</option>
-                  </Input>
+                    <Card.Header>
+                      <h6 className="quiz-title">
+                        <b>
+                          Q{(currentPage - 1) * questionPerPage + index + 1}.
+                        </b>{" "}
+                        {eachQuestion.question}
+                      </h6>
+                    </Card.Header>
+                    <Card.Body>
+                      <Row>
+                        <Col lg={6} md={12} sm={12}>
+                          <Chip
+                            style={{ width: "100%", marginBottom: "10px" }}
+                            label={eachQuestion.option1}
+                          />
+                          <Chip
+                            style={{ width: "100%", marginBottom: "10px" }}
+                            label={eachQuestion.option2}
+                          />
+                        </Col>
+                        <Col lg={6} md={12} sm={12}>
+                          <Chip
+                            style={{ width: "100%", marginBottom: "10px" }}
+                            label={eachQuestion.option3}
+                          />
+                          <Chip
+                            style={{ width: "100%", marginBottom: "10px" }}
+                            label={eachQuestion.option4}
+                          />
+                        </Col>
+                        <Col sm={12} className="delete-icon">
+                          <i>
+                            <FontAwesomeIcon
+                              icon={faTrash}
+                              onClick={(e) =>
+                                handleQuestionDetele(
+                                  e,
+                                  eachQuestion._id,
+                                  eachQuestion
+                                )
+                              }
+                            />
+                          </i>
+                        </Col>
+                      </Row>
+                    </Card.Body>
+                  </Card>
                 </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Col sm={12}>
-                  <Button type="submit" size="lg" block disabled={busyBtn}>
-                    Submit
-                  </Button>
-                </Col>
-              </FormGroup>
-            </Form>
+              ))}
+            </Row>
+            <Row className="justify-content-md-center">
+              <Pagination
+                count={Math.ceil(yourQuestion.length / questionPerPage)}
+                showFirstButton
+                showLastButton
+                onChange={handlePageChange}
+              />
+            </Row>
           </div>
-          <div>
-            {loading ? (
-              <div className="spinner-addQuestion">
-                <FontAwesomeIcon
-                  size="4x"
-                  color="green"
-                  icon={faSpinner}
-                  pulse
-                />
-              </div>
-            ) : (
-              <div className="question-render">
-                <h3>Your Contribution to Question Bank.</h3>
-                <Row>
-                  {currentQuestions.map((eachQuestion, index) => (
-                    <Col lg={6} md={12} sm={12} key={index}>
-                      <Card
-                        key={index}
-                        style={{ width: "100%", marginBottom: "30px" }}
-                      >
-                        <Card.Header>
-                          <h6 className="quiz-title">
-                            <b>
-                              Q{(currentPage - 1) * questionPerPage + index + 1}
-                              .
-                            </b>{" "}
-                            {eachQuestion.question}
-                          </h6>
-                        </Card.Header>
-                        <Card.Body>
-                          <Row>
-                            <Col lg={6} md={12} sm={12}>
-                              <Chip
-                                style={{ width: "100%", marginBottom: "10px" }}
-                                label={eachQuestion.option1}
-                              />
-                              <Chip
-                                style={{ width: "100%", marginBottom: "10px" }}
-                                label={eachQuestion.option2}
-                              />
-                            </Col>
-                            <Col lg={6} md={12} sm={12}>
-                              <Chip
-                                style={{ width: "100%", marginBottom: "10px" }}
-                                label={eachQuestion.option3}
-                              />
-                              <Chip
-                                style={{ width: "100%", marginBottom: "10px" }}
-                                label={eachQuestion.option4}
-                              />
-                            </Col>
-                            <Col sm={12} className="delete-icon">
-                              <i>
-                                <FontAwesomeIcon
-                                  icon={faTrash}
-                                  onClick={(e) =>
-                                    handleQuestionDetele(
-                                      e,
-                                      eachQuestion._id,
-                                      eachQuestion
-                                    )
-                                  }
-                                />
-                              </i>
-                            </Col>
-                          </Row>
-                        </Card.Body>
-                      </Card>
-                    </Col>
-                  ))}
-                </Row>
-                <Row className="justify-content-md-center">
-                  <Pagination
-                    count={Math.ceil(yourQuestion.length / questionPerPage)}
-                    showFirstButton
-                    showLastButton
-                    onChange={handlePageChange}
-                  />
-                </Row>
-              </div>
-            )}
-          </div>
-        </div>
-      ) : (
-        <Login />
-      )}
+        )}
+      </div>
     </div>
   );
 }

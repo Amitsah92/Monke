@@ -153,8 +153,40 @@
   width: 98%;
   margin-left: 1%;
   margin-top: 20px;
+  padding: 20px 20px;
+  border-radius: 2px;
+  box-shadow: 0px 2px 10px #555;
 }
 
 .trash-icon:hover {
   color: red;
+}
+
+.quiz-password-input {
+  border: none;
+  width: 100%;
+  background-color: white;
+  padding: 6px 12px;
+  text-align: center;
+}
+
+.quiz-password-col {
+  position: relative;
+}
+
+.quiz-password-col i {
+  position: absolute;
+  right: 25px;
+  top: 7px;
+}
+
+.quiz-password-label {
+  text-align: center;
+  padding-right: 10px;
+}
+
+.card-style {
+  width: 100%;
+  margin-bottom: 30px;
+  box-shadow: 0px 2px 10px #555;
 }

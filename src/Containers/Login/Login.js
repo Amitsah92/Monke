@@ -28,19 +28,19 @@ const Login = (props) => {
     setLoading(true);
 
     const data = new FormData(e.target);
-    const user = {
+    const loginuser = {
       userName: data.get("username"),
       passWord: data.get("password"),
     };
 
-    console.log(JSON.stringify(user));
+    console.log(JSON.stringify(loginuser));
 
     const url = "https://floating-badlands-28885.herokuapp.com/user/login";
     const headers = {
       "Content-Type": "apllication/json",
     };
 
-    axios.post(url, user, headers).then((res) => {
+    axios.post(url, loginuser, headers).then((res) => {
       if (res.data === 0) {
         setLoginFailed(true);
       } else {
@@ -52,6 +52,15 @@ const Login = (props) => {
           email: userDetails[0].email,
           isLoggedIn: true,
         });
+        let obj = {
+          userId: userDetails[0]._id,
+          loggedUser: userDetails[0].userName,
+          fullName: userDetails[0].fullName,
+          email: userDetails[0].email,
+          isLoggedIn: true,
+        };
+        let user_serialized = JSON.stringify(obj);
+        localStorage.setItem("user", user_serialized);
         if (props.page) {
           history.push(props.page);
         } else {

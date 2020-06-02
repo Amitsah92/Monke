@@ -70,6 +70,7 @@ export default function QuizPage({ quizDetails, handleRollBack }) {
 
     const url =
       "https://floating-badlands-28885.herokuapp.com/question/quizquestions";
+    //const url = "http://localhost:9000/question/quizquestions";
     setLoading(true);
 
     axios
@@ -280,13 +281,15 @@ export default function QuizPage({ quizDetails, handleRollBack }) {
                   Question reported successfully.!
                 </Alert>
               </Snackbar>
-              <div>
-                <QuizTimer
-                  handleTestSubmit={handleTestSubmit}
-                  mins={mins}
-                  hours={hours}
-                />
-              </div>
+              {!loading && (
+                <div>
+                  <QuizTimer
+                    handleTestSubmit={handleTestSubmit}
+                    mins={mins}
+                    hours={hours}
+                  />
+                </div>
+              )}
               <Row style={{ width: "100%" }}>
                 <Col lg={3} md={12} sm={12} className="content-wrapper-qp">
                   <Row>
