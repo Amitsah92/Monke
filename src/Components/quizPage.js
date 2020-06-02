@@ -66,9 +66,9 @@ export default function QuizPage({ quizDetails, handleRollBack }) {
       "Content-Type": "application/json",
     };
 
-    // const url =
-    //   "https://floating-badlands-28885.herokuapp.com/question/quizquestions";
-    const url = "http://localhost:9000/question/quizquestions";
+    const url =
+      "https://floating-badlands-28885.herokuapp.com/question/quizquestions";
+    //const url = "http://localhost:9000/question/quizquestions";
     setLoading(true);
 
     axios
