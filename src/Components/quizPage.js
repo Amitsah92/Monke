@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "../context";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./quizPage.css";
 import Paginate from "./paginate";
@@ -35,7 +34,6 @@ function Alert(props) {
 }
 
 export default function QuizPage({ quizDetails, handleRollBack }) {
-  const { user } = useContext(UserContext);
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setcurrentPage] = useState(1);
@@ -61,16 +59,16 @@ export default function QuizPage({ quizDetails, handleRollBack }) {
       noOfQuestion: quizDetails.noOfQuestion,
       difficultyLevel: quizDetails.difficultyLevel,
       includedQueston: quizDetails.includedQueston,
-      Uploadedby: user.userId,
+      Uploadedby: quizDetails.quizOwner,
     };
 
     const header = {
       "Content-Type": "application/json",
     };
 
-    const url =
-      "https://floating-badlands-28885.herokuapp.com/question/quizquestions";
-    //const url = "http://localhost:9000/question/quizquestions";
+    // const url =
+    //   "https://floating-badlands-28885.herokuapp.com/question/quizquestions";
+    const url = "http://localhost:9000/question/quizquestions";
     setLoading(true);
 
     axios
