@@ -160,8 +160,8 @@ export default function QuizPage({ quizDetails, handleRollBack }) {
 
   const handleRollBackClick = () => {
     if (
-      window.location.href === "https://serene-dubinsky-0f4e70.netlify.app/"
-      // window.location.href === "http://localhost:3000/"
+      window.location.href === "https://monke.netlify.app/"
+      //window.location.href === "http://localhost:3000/"
     ) {
       handleRollBack();
     } else {
