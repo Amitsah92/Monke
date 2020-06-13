@@ -7,6 +7,7 @@ import Table from "./quizResult";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { Redirect } from "react-router-dom";
+import { Input } from "@material-ui/core";
 
 export default function Dashboard() {
   const { user, setUser } = useContext(UserContext);
@@ -182,37 +183,31 @@ export default function Dashboard() {
             {pwEdit ? (
               <div>
                 <Col sm={12} className="Password-col">
-                  <label className="pwlable" for="CPassword">
-                    Current Password
-                  </label>
-                  <input
+                  <label className="pwlable">Current Password</label>
+                  <Input
                     className="text-input"
                     type="password"
-                    autocomplete="off"
+                    autoComplete="off"
                     name="cPassword"
                     id="CPassword"
                   />
                 </Col>
                 <Col sm={12} className="Password-col">
-                  <label className="pwlable" for="NPassword">
-                    New Password
-                  </label>
-                  <input
+                  <label className="pwlable">New Password</label>
+                  <Input
                     className="text-input"
                     type="text"
-                    autocomplete="off"
+                    autoComplete="off"
                     name="nPassword"
                     id="NPassword"
                   />
                 </Col>
                 <Col sm={12} className="Password-col">
-                  <label className="pwlable" for="CnPassword">
-                    Confirm New Password
-                  </label>
-                  <input
+                  <label className="pwlable">Confirm New Password</label>
+                  <Input
                     className="text-input"
                     type="password"
-                    autocomplete="off"
+                    autoComplete="off"
                     name="cnPassword"
                     id="CnPassword"
                   />

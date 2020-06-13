@@ -15,7 +15,7 @@ const PrivateQuiz = () => {
     const bodyParams = {
       quizId: data.get("quizId"),
       quizPassword: data.get("quizPassword"),
-      testType: "private",
+      testType: "Private",
       noOfQuiz: "one",
     };
 

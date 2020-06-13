@@ -18,7 +18,7 @@ const columns = [
   { id: "age", label: "Age", minWidth: 100, align: "right" },
   { id: "gender", label: "Gender", minWidth: 100, align: "center" },
   { id: "email", label: "Email", minWidth: 160 },
-  { id: "phoneNumber", label: "Phone Number", minWidth: 170, align: "Right" },
+  { id: "phoneNumber", label: "Phone Number", minWidth: 170, align: "right" },
   {
     id: "totalQuestion",
     label: "Total Question",

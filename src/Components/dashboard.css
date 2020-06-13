@@ -14,12 +14,7 @@
   justify-content: center;
   align-items: center;
   padding: 30px 40px;
-  background: rgb(238, 174, 202);
-  background: radial-gradient(
-    circle,
-    rgba(238, 174, 202, 1) 33%,
-    rgba(148, 187, 233, 0.7542367288712359) 100%
-  );
+  background-color: lightblue;
 }
 
 .form-dashboard {
@@ -51,7 +46,7 @@
   text-align: center;
   width: 100%;
   padding-top: 20px;
-  color: white;
+  color: black;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
@@ -62,8 +57,8 @@
   border-right: none;
   border-left: none;
   border-color: black;
-  color: white;
-  background-color: rgb(238, 174, 202);
+  color: black;
+  background-color: lightblue;
   margin-bottom: 2px;
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -73,8 +68,8 @@
 .test-input {
   border: none;
   width: 100%;
-  color: white;
-  background-color: rgb(238, 174, 202);
+  color: black;
+  background-color: lightblue;
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -113,7 +108,7 @@
   border-right: none;
   border-left: none;
   border-color: black;
-  background-color: rgb(238, 174, 202);
+  background-color: lightblue;
 }
 
 .button-reset-password {
@@ -124,11 +119,11 @@
   color: rgb(177, 52, 52);
   text-decoration: underline;
   border: none;
-  background-color: rgb(238, 174, 202);
+  background-color: lightblue;
 }
 
 .button-reset-password:hover {
-  background-color: rgb(238, 174, 202);
+  background-color: lightblue;
 }
 
 .pwlable {

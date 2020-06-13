@@ -446,7 +446,7 @@ export default function QuizPage({ quizDetails, handleRollBack }) {
           ) : (
             <div className="wrapper-instruction">
               <div className="instruction-box">
-                {quizDetails.testType === "private" ? (
+                {quizDetails.testType === "Private" ? (
                   <div className="personalInfo">
                     <h3 className="h3-pi">Personal Information.</h3>
                     <Form className="form-pi" onSubmit={HandleDetailSumbit}>
