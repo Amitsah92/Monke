@@ -1,0 +1,65 @@
+nav.navbar, .navbar-default{
+    background-color:green !important;
+    box-shadow: 0px 2px 10px #555;
+    width: 100%;
+}
+
+.navlink-cos{
+    color: white;
+    letter-spacing: 5px;
+    padding-right: 10px;
+    text-decoration: none;
+}
+
+.navlink-cos:hover {
+    transform: scale(1.1);
+    text-decoration: none;
+    color: white;
+}
+
+.navlink-about{
+    color:white;
+    padding: 10px;
+}
+
+.navlink-about:hover {
+    transform: scale(1.1);
+    text-decoration: none;
+    color: white;
+}
+
+/* .navbar-default{
+    background-color: none;
+    border: none;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-nav > li > a{
+    color : white;
+}
+
+.navbar-default .navbar-brand{
+    color: white;
+}
+
+.navbar-default .navbar-toggle{
+    background-color: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar{
+    border-color: white;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+    background-color: transparent;
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-.navbar-brand:hover{
+    color: white;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+    color: white;
+    background-color: transparent;
+} */

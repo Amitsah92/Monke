@@ -1,0 +1,137 @@
+.background-dashboard {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f8f9f9;
+}
+
+.profile-dashboard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 40px;
+  background-color: lightblue;
+}
+
+.form-dashboard {
+  width: 20%;
+  min-width: 300px;
+}
+
+.quiz-dashboard {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.text-center {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.dashboard-passWord {
+  text-align: center;
+  width: 100%;
+  text-decoration: underline;
+  padding-top: 20px;
+  color: rgb(180, 29, 3);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.dashboard-fullname {
+  text-align: center;
+  width: 100%;
+  padding-top: 20px;
+  color: black;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.test-input-active {
+  border-top: none;
+  width: 100%;
+  border-right: none;
+  border-left: none;
+  border-color: black;
+  color: black;
+  background-color: lightblue;
+  margin-bottom: 2px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.test-input {
+  border: none;
+  width: 100%;
+  color: black;
+  background-color: lightblue;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.usernameedit-col,
+.email-col {
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.usernameedit-col b,
+.email-col b {
+  position: absolute;
+  right: 10px;
+  top: -10px;
+  padding: 10px 8px;
+}
+
+.email-col input:focus + i,
+.usernameedit-col input:focus + i {
+  color: dodgerblue;
+}
+
+.button-save {
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-input {
+  border-top: none;
+  width: 100%;
+  border-right: none;
+  border-left: none;
+  border-color: black;
+  background-color: lightblue;
+}
+
+.button-reset-password {
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgb(177, 52, 52);
+  text-decoration: underline;
+  border: none;
+  background-color: lightblue;
+}
+
+.button-reset-password:hover {
+  background-color: lightblue;
+}
+
+.pwlable {
+  width: 100%;
+  text-align: center;
+  color: black;
+}
+
+.Password-col {
+  margin-top: 20px;
+}

@@ -1,0 +1,192 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+  flex-direction: column;
+  justify-content: top;
+  align-items: top;
+  background-color: #f8f9f9;
+}
+
+.form-wrapper {
+  width: 98%;
+  display: flex;
+  margin-left: 1%;
+  margin-top: 20px;
+  flex-direction: column;
+  padding: 20px 40px;
+  border-radius: 2px;
+  box-shadow: 0px 2px 10px #555;
+  background-color: #ffffff;
+}
+
+.quizList-wrapper {
+  width: 98%;
+  display: flex;
+  margin-left: 1%;
+  margin-top: 20px;
+  flex-direction: column;
+  padding: 20px 40px;
+  border-radius: 2px;
+  box-shadow: 0px 2px 10px #555;
+  background-color: #ffffff;
+}
+
+.custom-form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.custom-h1 {
+  text-align: center;
+  width: 100%;
+  color: #111;
+  font-weight: lighter;
+  margin-bottom: 30px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+.sumbitQuestion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sumbitQuestion button {
+  background-color: green;
+  color: Black;
+  border: 1px solid #fff;
+  width: 100%;
+  height: 50px;
+  margin-top: 0.25em;
+  padding: 8px 0px;
+  font-size: 1em;
+  letter-spacing: 1px;
+  margin-bottom: 0.25em;
+  border-radius: 10px;
+  outline-color: white;
+}
+
+.sumbitQuestion button:hover {
+  color: Black;
+  background-color: #519e8a;
+}
+
+.wrapper-sc {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9f9;
+}
+
+.bg-form-wrapper {
+  width: 28%;
+  min-width: 330px;
+  display: flex;
+  margin-left: 2%;
+  margin-top: 2%;
+  flex-direction: column;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 50px #555;
+  background-color: #ffffff;
+}
+
+.custom-form-sc {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.QuizIdPaassword-h4 {
+  text-align: center;
+  width: 100%;
+  color: green;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.QuizIdPaassword-h6 {
+  text-align: center;
+  width: 100%;
+  color: #222;
+  font-weight: lighter;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.label-1 {
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 0.25em;
+  color: black;
+}
+
+.image-custom {
+  max-block-size: 30px;
+  margin-bottom: 2%;
+}
+
+.spinner-createTest {
+  display: table;
+  margin-top: 15%;
+  margin-bottom: 20%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quiz-area {
+  width: 98%;
+  margin-left: 1%;
+  margin-top: 20px;
+  padding: 20px 20px;
+  border-radius: 2px;
+  box-shadow: 0px 2px 10px #555;
+}
+
+.trash-icon:hover {
+  color: red;
+}
+
+.quiz-password-input {
+  border: none;
+  width: 100%;
+  background-color: white;
+  padding: 6px 12px;
+  text-align: center;
+}
+
+.quiz-password-col {
+  position: relative;
+}
+
+.quiz-password-col i {
+  position: absolute;
+  right: 25px;
+  top: 7px;
+}
+
+.quiz-password-label {
+  text-align: center;
+  padding-right: 10px;
+}
+
+.card-style {
+  width: 100%;
+  margin-bottom: 30px;
+  box-shadow: 0px 2px 10px #555;
+}
